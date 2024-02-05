@@ -12,18 +12,28 @@ searchUserForm.addEventListener("submit", async (event) => {
     if (userData) {
         const userRepo = await getUserRepo(username)
         displayUserDataOnScreen(userData, userRepo)
+
+        
     }
 
     event.target.querySelector(".username-input").value = ""
 })
 
 async function getUserData(username) {
-    const response = await fetch(`https://api.github.com/users/${username}`)
+    const introSection = document.getElementById("introSection");
+
+    introSection.classList.add("hide");
+
+    const response = await fetch(`https://api.github.com/users/${username}`);
+
     if (response.ok) {
-        const data = await response.json()
-        return data
+        const data = await response.json();
+        const userRepo = await getUserRepo(username);
+        displayUserDataOnScreen(data, userRepo);
     } else {
-        alert("Usuário não encontrado")
+        alert("Usuário não encontrado");
+
+        introSection.classList.remove("hide");
     }
 }
 
@@ -97,3 +107,13 @@ while (userRepoContent.firstChild) {
     userRepoContent.removeChild(userRepoContent.firstChild)
 }
 }
+
+const backButton = document.createElement("button");
+backButton.textContent = "Voltar para a busca";
+backButton.classList.add("back-button");
+
+backButton.addEventListener("click", () => {
+    resetForm();
+});
+
+document.querySelector(".user-data-container").appendChild(backButton);

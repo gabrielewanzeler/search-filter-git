@@ -196,6 +196,24 @@ button[type="submit"]:hover {
     max-width: 530px;
 }
 
+.intro-section {
+    text-align: center;
+    margin-top: 4cm;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .hide {
     display: none;
+}
+
+.back-button {
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 4px;
 }

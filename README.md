@@ -1,6 +1,7 @@
 # search-filter-git
 
-Buscar e Filtrar pelo Github
+#Buscar e Filtrar pelo Github (Search end Filter)
+
 Este programa simples e funcional feito em HTML, CSS e JavaScript, permite que você encontre informações sobre um usuário do Github e visualize até os 4 repositórios modificados recentemente por esse usuário, através do nome de usuário.
 
 Como Usar
